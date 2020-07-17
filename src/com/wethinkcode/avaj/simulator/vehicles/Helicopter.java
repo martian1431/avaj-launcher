@@ -1,6 +1,5 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
-import com.wethinkcode.avaj.simulator.Coordinates;
 import com.wethinkcode.avaj.simulator.WeatherTower;
 
 public class Helicopter extends Aircraft implements Flyable {
