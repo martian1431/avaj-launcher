@@ -1,4 +1,23 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
-public class JetPlane {
+import com.wethinkcode.avaj.simulator.Coordinates;
+import com.wethinkcode.avaj.simulator.WeatherTower;
+
+public class JetPlane extends Aircraft implements Flyable {
+    private WeatherTower weatherTower;
+
+    JetPlane(String name, Coordinates coordinates) {
+        super(name, coordinates);
+    }
+
+
+    @Override
+    public void updateConditions() {
+
+    }
+
+    @Override
+    public void registerTower(WeatherTower weatherTower) {
+
+    }
 }
