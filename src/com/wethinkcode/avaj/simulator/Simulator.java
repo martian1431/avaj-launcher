@@ -16,9 +16,9 @@ import java.util.logging.Logger;
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 public class Simulator {
-    private final static Logger logger = Logger.getLogger(Simulator.class.getName());
-    private static WeatherTower weatherTower;
-    private static List<Flyable> flyables = new ArrayList<>();
+    private final static Logger _logger = Logger.getLogger(Simulator.class.getName());
+    private static WeatherTower _weatherTower;
+    private static List<Flyable> _flyables = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
@@ -27,16 +27,16 @@ public class Simulator {
 
             if (line != null) {
                 int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
-                weatherTower = new WeatherTower();
+                _weatherTower = new WeatherTower();
 
                 if (Integer.signum(simulations) != POSITIVE_NUMBER) {
-                    logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
+                    _logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
                     System.exit(1);
                 }
 
                 createAircraft(bufferedReader);
 
-                registerAircraft(flyables);
+                registerAircraft(_flyables);
 
                 changeWeather(simulations);
             }
@@ -62,7 +62,7 @@ public class Simulator {
                         Integer.parseInt(line.split(SPACE)[AIRCRAFT_LONGITUDE]),
                         Integer.parseInt(line.split(SPACE)[AIRCRAFT_LATITUDE]),
                         Integer.parseInt(line.split(SPACE)[AIRCRAFT_HEIGHT]));
-                flyables.add(aircraft);
+                _flyables.add(aircraft);
             }
         } catch (NumberFormatException e) {
             System.out.println(SCENARIO_FORMAT_ERROR);
@@ -74,12 +74,12 @@ public class Simulator {
     }
 
     private static void registerAircraft(List<Flyable> flyables) {
-        for (Flyable aircraft: flyables) aircraft.registerTower(weatherTower);
+        for (Flyable aircraft: flyables) aircraft.registerTower(_weatherTower);
     }
 
     private static void changeWeather(int simulations) {
         for (int index = 1; index <= simulations; index++) {
-            weatherTower.changeWeather();
+            _weatherTower.changeWeather();
         }
     }
 }

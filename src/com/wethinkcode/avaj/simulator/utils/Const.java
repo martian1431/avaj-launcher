@@ -16,16 +16,15 @@ public final class Const {
     public static final int AIRCRAFT_HEIGHT = 4;
 
 //    Exception Messages
-    public static final String FILE_NOT_FOUND = "Path to Scenario file not found ";
-    public static final String ERROR_READING_FILE = "Something went wrong reading file ";
+    public static final String FILE_NOT_FOUND = "Could not find file ";
+    public static final String ERROR_READING_FILE = "There was an error reading the file ";
     public static final String ERROR_WRITING_FILE = "Something went wrong writing to file: 'simulation.txt' ";
 //    FIXME: change name and value
     public static final String SCENARIO_FORMAT_ERROR = "A non-integer value was given for number of simulations.";
     //    FIXME: change name and value
-    public static final String INDEX_ERROR = "Specify scenario file";
-    public static final String SIMULATION_COUNT_ERROR = "Invalid simulations count, expected a positive number greater " +
-            "than 0";
-    public static final String INCORRECT_AIRCRAFT_TYPE = "Incorrect aircraft specified, check scenario file and try again.";
+    public static final String INDEX_ERROR = "Specify simulation file";
+    public static final String SIMULATION_COUNT_ERROR = "Invalid amount of simulations ";
+    public static final String INCORRECT_AIRCRAFT_TYPE = "Aircraft could not be built.";
     public static final String INVALID_WEATHER = "The weather condition is not valid";
 
 //    File names

@@ -8,7 +8,7 @@ import java.util.HashMap;
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 public class Helicopter extends Aircraft implements Flyable {
-    private WeatherTower weatherTower;
+    private WeatherTower _weatherTower;
     
     Helicopter(String name, Coordinates coordinates) {
         super(name, coordinates);
@@ -16,7 +16,7 @@ public class Helicopter extends Aircraft implements Flyable {
 
     @Override
     public void updateConditions() {
-        String weather = weatherTower.getWeather(this.coordinates);
+        String weather = _weatherTower.getWeather(this.coordinates);
         HashMap<String, String> message = new HashMap<>();
         message.put(SUN, "Lord Geff told us this would happen");
         message.put(RAIN, "When it rains it pours");
@@ -41,14 +41,14 @@ public class Helicopter extends Aircraft implements Flyable {
         if (this.coordinates.getHeight() <= 0) {
             Log.addMessage("Helicopter#"+ this.name + "(" + this.id + "): LANDED.");
             Log.addMessage("Helicopter#"+ this.name + "(" + this.id + "): UNREGISTERED FROM WEATHER TOWER.");
-            weatherTower.unregister(this);
+            _weatherTower.unregister(this);
         }
     }
 
     @Override
     public void registerTower(WeatherTower weatherTower) {
-        this.weatherTower = weatherTower;
-        this.weatherTower.register(this);
+        this._weatherTower = weatherTower;
+        this._weatherTower.register(this);
         Log.addMessage("Tower says Helicopter#" + this.name + "(" + this.id + "): registered to weather tower");
     }
 }
