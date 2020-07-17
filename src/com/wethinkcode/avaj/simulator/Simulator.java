@@ -1,6 +1,6 @@
 package com.wethinkcode.avaj.simulator;
 
-import com.wethinkcode.avaj.simulator.utils.Logger;
+import com.wethinkcode.avaj.simulator.utils.Log;
 import com.wethinkcode.avaj.simulator.vehicles.AircraftFactory;
 import com.wethinkcode.avaj.simulator.vehicles.Flyable;
 
@@ -10,10 +10,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 public class Simulator {
+    private final static Logger logger = Logger.getLogger(Simulator.class.getName());
     private static WeatherTower weatherTower;
     private static List<Flyable> flyables = new ArrayList<>();
 
@@ -24,17 +27,12 @@ public class Simulator {
 
             if (line != null) {
                 weatherTower = new WeatherTower();
-                //TODO Constant: SIMULATION_COUNT, SPACE
-                int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION]);
-                //TODO Constant: POSITIVE_NUMBER
-                if (Integer.signum(simulations) != POSITIVE_INT) {
-                    System.out.println("Invalid simulations count, expected a positive number greater than 0!");
-                    //TODO Constant: EXIT_CODE
+                int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
+                if (Integer.signum(simulations) != POSITIVE_NUMBER) {
+                    logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
                     System.exit(1);
                 }
                 while ((line = bufferedReader.readLine()) != null) {
-                    //TODO Constant: AIRCRAFT_TYPE, AIRCRAFT_NAME, AIRCRAFT_LONGITUTE, AIRCRAFT_LATITUDE, AIRCRAFT_HEIGHT
-                    //TODO Variable name: aircraft
                     Flyable aircraft = AircraftFactory.newAircraft(line.split(SPACE)[AIRCRAFT_TYPE],
                             line.split(SPACE)[AIRCRAFT_NAME],
                             Integer.parseInt(line.split(SPACE)[AIRCRAFT_LONGITUDE]),
@@ -54,18 +52,18 @@ public class Simulator {
             bufferedReader.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println("Path to Scenario file not found!!" + args[FILE]);
+            System.out.println(FILE_NOT_FOUND + args[FILE]);
             System.exit(1);
         }catch (IOException e) {
-            System.out.println("Something went wrong reading file "+ args[FILE]);
+            System.out.println(ERROR_READING_FILE + args[FILE]);
             System.exit(1);
         } catch (NumberFormatException e) {
-            System.out.println("A non-integer value was given for number of simulations!!");
+            System.out.println(NUMBER_FORMAT_ERROR);
             System.exit(1);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Specify scenario file");
+            System.out.println(INDEX_ERROR);
         } finally {
-            Logger.logMessage();
+            Log.logMessage();
         }
     }
 }

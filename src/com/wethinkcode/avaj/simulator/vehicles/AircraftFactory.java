@@ -1,18 +1,25 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
+import com.wethinkcode.avaj.simulator.utils.Log;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import static com.wethinkcode.avaj.simulator.utils.Const.*;
+
 public class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
 
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
         switch (type.toLowerCase()){
-            case "helicopter":
+            case HELICOPTER:
                 return new Helicopter(name, coordinates);
-            case "jetplane":
+            case JET_PLANE:
                 return new JetPlane(name, coordinates);
-            case "baloon":
+            case BALLON:
                 return new Baloon(name, coordinates);
             default:
-                System.out.println("Incorrect aircraft specified, check scenario file and try again.");
+                System.out.println(INCORRECT_AIRCRAFT_TYPE);
                 System.exit(1);
         }
         return null;
