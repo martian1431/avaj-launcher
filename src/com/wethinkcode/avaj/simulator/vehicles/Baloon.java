@@ -1,6 +1,6 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
-import com.wethinkcode.avaj.simulator.Logger;
+import com.wethinkcode.avaj.simulator.utils.Logger;
 import com.wethinkcode.avaj.simulator.WeatherTower;
 
 import java.util.HashMap;
@@ -45,6 +45,6 @@ public class Baloon extends Aircraft implements Flyable {
     public void registerTower(WeatherTower weatherTower) {
         this.weatherTower = weatherTower;
         this.weatherTower.register(this);
-        Logger.addMessage("Tower says Baloon#: "+ this.name + this.id + " registered to weather tower");
+        Logger.addMessage("Tower says Baloon#: "+ this.name + " (" + this.id + ") registered to weather tower");
     }
 }

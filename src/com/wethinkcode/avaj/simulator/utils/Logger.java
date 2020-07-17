@@ -1,4 +1,4 @@
-package com.wethinkcode.avaj.simulator;
+package com.wethinkcode.avaj.simulator.utils;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
