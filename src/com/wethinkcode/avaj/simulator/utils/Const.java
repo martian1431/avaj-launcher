@@ -19,7 +19,9 @@ public final class Const {
     public static final String FILE_NOT_FOUND = "Path to Scenario file not found ";
     public static final String ERROR_READING_FILE = "Something went wrong reading file ";
     public static final String ERROR_WRITING_FILE = "Something went wrong writing to file: 'simulation.txt' ";
-    public static final String NUMBER_FORMAT_ERROR = "A non-integer value was given for number of simulations.";
+//    FIXME: change name and value
+    public static final String SCENARIO_FORMAT_ERROR = "A non-integer value was given for number of simulations.";
+    //    FIXME: change name and value
     public static final String INDEX_ERROR = "Specify scenario file";
     public static final String SIMULATION_COUNT_ERROR = "Invalid simulations count, expected a positive number greater " +
             "than 0";
