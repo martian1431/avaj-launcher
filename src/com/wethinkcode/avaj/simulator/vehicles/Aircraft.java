@@ -13,6 +13,6 @@ public class Aircraft {
     }
 
     private long nextId() {
-        return idCounter = (idCounter == 0) ? 1 : idCounter++;
+        return ++idCounter;
     }
 }

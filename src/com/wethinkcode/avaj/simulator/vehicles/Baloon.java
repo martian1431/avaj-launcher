@@ -18,10 +18,10 @@ public class Baloon extends Aircraft implements Flyable {
     public void updateConditions() {
         String weather = weatherTower.getWeather(this.coordinates);
         HashMap<String, String> message = new HashMap<>();
-        message.put(SUN, "Its hot");
-        message.put(RAIN, "Its wet");
+        message.put(SUN, "Beautiful sunny day");
+        message.put(RAIN, "Let it rain");
         message.put(FOG, "I can not see a bloody thing");
-        message.put(SNOW, "Daaaamn its freezing");
+        message.put(SNOW, "Daaaaamn its freezing");
 
         switch (weather) {
             case SUN -> this.coordinates = new Coordinates(coordinates.getLongitude() + 2,

@@ -1,10 +1,5 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
-import com.wethinkcode.avaj.simulator.utils.Log;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 public class AircraftFactory {

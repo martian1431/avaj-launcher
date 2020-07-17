@@ -70,8 +70,6 @@ public class Simulator {
         } catch (IOException | ArrayIndexOutOfBoundsException e) {
             System.out.println(INDEX_ERROR);
             System.exit(1);
-        } finally {
-            Log.logMessage();
         }
     }
 
