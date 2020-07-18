@@ -2,7 +2,7 @@ package com.wethinkcode.avaj.simulator;
 
 import com.wethinkcode.avaj.simulator.utils.Log;
 import com.wethinkcode.avaj.simulator.vehicles.AircraftFactory;
-import com.wethinkcode.avaj.simulator.vehicles.Flyable;
+import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

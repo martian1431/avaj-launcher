@@ -2,6 +2,7 @@ package com.wethinkcode.avaj.simulator.vehicles;
 
 import com.wethinkcode.avaj.simulator.WeatherTower;
 import com.wethinkcode.avaj.simulator.utils.Log;
+import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
 
 import java.util.HashMap;
 

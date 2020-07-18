@@ -1,4 +1,4 @@
-package com.wethinkcode.avaj.simulator.vehicles;
+package com.wethinkcode.avaj.simulator.vehicles.interfaces;
 
 import com.wethinkcode.avaj.simulator.WeatherTower;
 

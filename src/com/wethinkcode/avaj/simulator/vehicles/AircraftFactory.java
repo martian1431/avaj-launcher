@@ -1,5 +1,7 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
+import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
+
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 /**
