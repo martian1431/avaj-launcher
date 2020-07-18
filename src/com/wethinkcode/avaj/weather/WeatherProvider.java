@@ -5,8 +5,8 @@ import com.wethinkcode.avaj.simulator.vehicles.Coordinates;
 import java.util.Random;
 
 public class WeatherProvider {
-    private static WeatherProvider weatherProvider = new WeatherProvider();
-    private static String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};
+    private static final WeatherProvider weatherProvider = new WeatherProvider();
+    private static final String[] weather = {"SUN", "RAIN", "FOG", "SNOW"};
 
     private WeatherProvider() {}
 

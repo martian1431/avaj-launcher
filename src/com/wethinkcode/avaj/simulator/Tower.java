@@ -3,9 +3,10 @@ package com.wethinkcode.avaj.simulator;
 import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tower {
-    private ArrayList<Flyable> observers = new ArrayList<>();
+    private List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable) {
         observers.add(flyable);
@@ -16,8 +17,8 @@ public class Tower {
     }
 
     protected void conditionsChanged() {
-        for (Flyable observer : observers) {
-            observer.updateConditions();
+        for (int i = 0; i < observers.size(); i++) {
+            observers.get(i).updateConditions();
         }
     }
 }

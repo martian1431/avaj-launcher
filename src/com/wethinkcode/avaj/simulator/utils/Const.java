@@ -1,9 +1,8 @@
 package com.wethinkcode.avaj.simulator.utils;
 
-public final class Const {
+public class Const {
     private Const() {
     }
-
 //
     public static final int FILE = 0;
     public static final String SPACE = " ";
@@ -41,6 +40,4 @@ public final class Const {
     public static final String RAIN = "RAIN";
     public static final String FOG = "FOG";
     public static final String SNOW = "SNOW";
-
-
 }

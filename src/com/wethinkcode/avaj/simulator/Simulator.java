@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -70,6 +71,8 @@ public class Simulator {
         } catch (IOException | ArrayIndexOutOfBoundsException e) {
             System.out.println(INDEX_ERROR);
             System.exit(1);
+        } finally {
+            Log.logMessage();
         }
     }
 

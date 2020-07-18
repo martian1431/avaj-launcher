@@ -11,7 +11,7 @@ public class Aircraft {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
-    private static long _idCounter = 0L;
+    private static long _idCounter;
 
     /**
      * Aircraft constructor: when creating a
