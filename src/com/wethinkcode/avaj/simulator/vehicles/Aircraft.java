@@ -11,7 +11,7 @@ public class Aircraft {
     protected long id;
     protected String name;
     protected Coordinates coordinates;
-    private static long _idCounter;
+    private static long idCounter;
 
     /**
      * Aircraft constructor: when creating a
@@ -33,6 +33,6 @@ public class Aircraft {
      * @return idCounter
      */
     private long nextId() {
-        return ++_idCounter;
+        return ++idCounter;
     }
 }

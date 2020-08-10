@@ -1,37 +1,37 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
 public class Coordinates {
-    private final int _longitude;
-    private final int _latitude;
-    private final int _height;
+    private final int longitude;
+    private final int latitude;
+    private final int height;
 
     Coordinates(int longitude, int latitude, int height) {
         if (longitude <= 0) {
             longitude = 0;
         }
-        this._longitude = longitude;
+        this.longitude = longitude;
         if (latitude <= 0) {
             latitude = 0;
         }
-        this._latitude = latitude;
+        this.latitude = latitude;
         if (height <= 0) {
             height = 0;
         }
         else if (height > 100) {
             height = 100;
         }
-        this._height = height;
+        this.height = height;
     }
 
     public int getLongitude() {
-        return this._longitude;
+        return this.longitude;
     }
 
     public int getLatitude() {
-        return this._latitude;
+        return this.latitude;
     }
 
     public int getHeight() {
-        return this._height;
+        return this.height;
     }
 }

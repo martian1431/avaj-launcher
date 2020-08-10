@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.ConcurrentModificationException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,9 +16,9 @@ import java.util.logging.Logger;
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 public class Simulator {
-    private final static Logger _logger = Logger.getLogger(Simulator.class.getName());
-    private static WeatherTower _weatherTower;
-    private static List<Flyable> _flyables = new ArrayList<>();
+    private final static Logger logger = Logger.getLogger(Simulator.class.getName());
+    private static WeatherTower weatherTower;
+    private static List<Flyable> flyables = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
@@ -28,16 +27,16 @@ public class Simulator {
 
             if (line != null) {
                 int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
-                _weatherTower = new WeatherTower();
+                weatherTower = new WeatherTower();
 
                 if (Integer.signum(simulations) != POSITIVE_NUMBER) {
-                    _logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
+                    logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
                     System.exit(1);
                 }
 
                 createAircraft(bufferedReader);
 
-                registerAircraft(_flyables);
+                registerAircraft(flyables);
 
                 changeWeather(simulations);
             }
@@ -54,6 +53,7 @@ public class Simulator {
         }
     }
 
+    //TODO throw Exception signature
     private static void createAircraft(BufferedReader bufferedReader) {
         try {
             String line;
@@ -63,7 +63,7 @@ public class Simulator {
                         Integer.parseInt(line.split(SPACE)[AIRCRAFT_LONGITUDE]),
                         Integer.parseInt(line.split(SPACE)[AIRCRAFT_LATITUDE]),
                         Integer.parseInt(line.split(SPACE)[AIRCRAFT_HEIGHT]));
-                _flyables.add(aircraft);
+                flyables.add(aircraft);
             }
         } catch (NumberFormatException e) {
             System.out.println(SCENARIO_FORMAT_ERROR);
@@ -77,12 +77,12 @@ public class Simulator {
     }
 
     private static void registerAircraft(List<Flyable> flyables) {
-        for (Flyable aircraft: flyables) aircraft.registerTower(_weatherTower);
+        for (Flyable aircraft: flyables) aircraft.registerTower(weatherTower);
     }
 
     private static void changeWeather(int simulations) {
         for (int index = 1; index <= simulations; index++) {
-            _weatherTower.changeWeather();
+            weatherTower.changeWeather();
         }
     }
 }
