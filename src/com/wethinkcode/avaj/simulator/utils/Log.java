@@ -8,6 +8,13 @@ import java.util.List;
 
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
+/**
+ * Log
+ *
+ * @author  Phetho Malope
+ * @since   2020-10-20
+ * @version 1.0
+ */
 public class Log {
     public static List<String> messages = new ArrayList<>();
 

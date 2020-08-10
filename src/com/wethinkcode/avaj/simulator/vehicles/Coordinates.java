@@ -1,5 +1,12 @@
 package com.wethinkcode.avaj.simulator.vehicles;
 
+/**
+ * Coordinates
+ *
+ * @author  Phetho Malope
+ * @since   2020-10-20
+ * @version 1.0
+ */
 public class Coordinates {
     private final int longitude;
     private final int latitude;

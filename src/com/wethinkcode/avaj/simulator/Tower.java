@@ -5,6 +5,13 @@ import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Tower
+ *
+ * @author  Phetho Malope
+ * @since   2020-10-20
+ * @version 1.0
+ */
 public class Tower {
     private List<Flyable> observers = new ArrayList<>();
 

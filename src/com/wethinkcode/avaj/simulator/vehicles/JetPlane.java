@@ -8,6 +8,14 @@ import java.util.HashMap;
 
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
+
+/**
+ * JetPlane
+ *
+ * @author  Phetho Malope
+ * @since   2020-10-20
+ * @version 1.0
+ */
 public class JetPlane extends Aircraft implements Flyable {
     private WeatherTower weatherTower;
 
