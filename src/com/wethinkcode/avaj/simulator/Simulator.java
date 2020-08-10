@@ -43,36 +43,31 @@ public class Simulator {
             bufferedReader.close();
 
         } catch (FileNotFoundException e) {
-            System.out.println(FILE_NOT_FOUND + args[FILE]);
+            System.err.println(FILE_NOT_FOUND + args[FILE]);
             System.exit(1);
         } catch (IOException e) {
-            System.out.println(ERROR_READING_FILE + args[FILE]);
+            System.err.println(ERROR_READING_FILE + args[FILE]);
+            System.exit(1);
+        } catch (NumberFormatException e) {
+            System.err.println("scenario file: invalid argument type");
+            System.exit(1);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.err.println("scenario file: index out of bounds");
             System.exit(1);
         } finally {
             Log.logMessage();
         }
     }
 
-    //TODO throw Exception signature
-    private static void createAircraft(BufferedReader bufferedReader) {
-        try {
-            String line;
-            while ((line = bufferedReader.readLine()) != null) {
-                Flyable aircraft = AircraftFactory.newAircraft(line.split(SPACE)[AIRCRAFT_TYPE],
-                        line.split(SPACE)[AIRCRAFT_NAME],
-                        Integer.parseInt(line.split(SPACE)[AIRCRAFT_LONGITUDE]),
-                        Integer.parseInt(line.split(SPACE)[AIRCRAFT_LATITUDE]),
-                        Integer.parseInt(line.split(SPACE)[AIRCRAFT_HEIGHT]));
-                flyables.add(aircraft);
-            }
-        } catch (NumberFormatException e) {
-            System.out.println(SCENARIO_FORMAT_ERROR);
-            System.exit(1);
-        } catch (IOException | ArrayIndexOutOfBoundsException e) {
-            System.out.println(INDEX_ERROR);
-            System.exit(1);
-        } finally {
-            Log.logMessage();
+    private static void createAircraft(BufferedReader bufferedReader) throws IOException {
+        String line;
+        while ((line = bufferedReader.readLine()) != null) {
+            Flyable aircraft = AircraftFactory.newAircraft(line.split(SPACE)[AIRCRAFT_TYPE],
+                    line.split(SPACE)[AIRCRAFT_NAME],
+                    Integer.parseInt(line.split(SPACE)[AIRCRAFT_LONGITUDE]),
+                    Integer.parseInt(line.split(SPACE)[AIRCRAFT_LATITUDE]),
+                    Integer.parseInt(line.split(SPACE)[AIRCRAFT_HEIGHT]));
+            flyables.add(aircraft);
         }
     }
 
