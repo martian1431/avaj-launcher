@@ -22,12 +22,12 @@ public class Simulator {
 
     public static void main(String[] args) {
         try {
+            weatherTower = new WeatherTower();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(args[0]));
             String line = bufferedReader.readLine();
 
             if (line != null) {
                 int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
-                weatherTower = new WeatherTower();
 
                 if (Integer.signum(simulations) != POSITIVE_NUMBER) {
                     logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
