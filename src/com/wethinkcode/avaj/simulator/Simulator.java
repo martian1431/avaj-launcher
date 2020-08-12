@@ -10,27 +10,25 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
 
 public class Simulator {
-    private final static Logger logger = Logger.getLogger(Simulator.class.getName());
     private static WeatherTower weatherTower;
     private static List<Flyable> flyables = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
+            int simulations;
             weatherTower = new WeatherTower();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(args[0]));
             String line = bufferedReader.readLine();
 
             if (line != null) {
-                int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
+                simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
 
                 if (Integer.signum(simulations) != POSITIVE_NUMBER) {
-                    logger.log(Level.SEVERE, "Simulation Count", new RuntimeException(SIMULATION_COUNT_ERROR));
+                    System.err.println(SIMULATION_COUNT_ERROR);
                     System.exit(1);
                 }
 
@@ -38,7 +36,10 @@ public class Simulator {
 
                 registerAircraft(flyables);
 
-                changeWeather(simulations);
+                startSimulation(simulations);
+            } else {
+                System.err.println("Scenario file: cannot be empty");
+                System.exit(1);
             }
             bufferedReader.close();
 
@@ -49,13 +50,20 @@ public class Simulator {
             System.err.println(ERROR_READING_FILE + args[FILE]);
             System.exit(1);
         } catch (NumberFormatException e) {
-            System.err.println("scenario file: invalid argument type");
+            System.err.println("Scenario file: invalid argument type");
             System.exit(1);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println("scenario file: index out of bounds");
+            System.err.println("Scenario file: index out of bounds");
             System.exit(1);
         } finally {
             Log.logMessage();
+            System.out.println("Simulation completed...");
+        }
+    }
+
+    private static void startSimulation(int simulations) {
+        for (int index = 1; index <= simulations; index++) {
+            weatherTower.changeWeather();
         }
     }
 
@@ -73,11 +81,5 @@ public class Simulator {
 
     private static void registerAircraft(List<Flyable> flyables) {
         for (Flyable aircraft: flyables) aircraft.registerTower(weatherTower);
-    }
-
-    private static void changeWeather(int simulations) {
-        for (int index = 1; index <= simulations; index++) {
-            weatherTower.changeWeather();
-        }
     }
 }
