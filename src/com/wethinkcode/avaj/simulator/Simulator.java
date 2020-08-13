@@ -71,7 +71,7 @@ public class Simulator {
     private static void createAircraft(BufferedReader bufferedReader) throws Exception {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
-            if (line.split(SPACE).length != ARGUMENT_COUNT) { //TODO find a situable name for argument count
+            if (line.split(SPACE).length != ARGUMENT_COUNT) {
                 throw new Exception(SCENARIO_FILE_INVALID_ARGUMENT);
             } else {
                 Flyable aircraft = AircraftFactory.newAircraft(line.split(SPACE)[AIRCRAFT_TYPE],
