@@ -20,7 +20,6 @@ public class Simulator {
 
     public static void main(String[] args) {
         try {
-//            int simulations;
             weatherTower = new WeatherTower();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(args[0]));
             String line = bufferedReader.readLine();
