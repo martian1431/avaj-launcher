@@ -13,18 +13,23 @@ public class Const {
     public static final int AIRCRAFT_LONGITUDE = 2;
     public static final int AIRCRAFT_LATITUDE = 3;
     public static final int AIRCRAFT_HEIGHT = 4;
+    public static final int ARGUMENT_COUNT = 5;
 
 //    Exception Messages
-    public static final String FILE_NOT_FOUND = "Could not find file ";
-    public static final String ERROR_READING_FILE = "There was an error reading the file ";
-    public static final String ERROR_WRITING_FILE = "Something went wrong writing to file: 'simulation.txt' ";
+    public static final String FILE_NOT_FOUND = "Simulation failed: Could not find file ";
+    public static final String ERROR_READING_FILE = "Simulation failed: failed reading the file 'scenario.txt' ";
+    public static final String ERROR_WRITING_FILE = "Simulation failed: failed writing to file: 'simulation.txt' ";
 //    FIXME: change name and value
-    public static final String SCENARIO_FORMAT_ERROR = "A non-integer value was given for number of simulations.";
+//    public static final String SCENARIO_FORMAT_ERROR = "Simulation failed: A non-integer value was given for number of simulations.";
     //    FIXME: change name and value
-    public static final String INDEX_ERROR = "Specify simulation file";
-    public static final String SIMULATION_COUNT_ERROR = "Invalid amount of simulations ";
-    public static final String INCORRECT_AIRCRAFT_TYPE = "Aircraft could not be built.";
-    public static final String INVALID_WEATHER = "The weather condition is not valid";
+//    public static final String INDEX_ERROR = "Specify simulation file";
+    public static final String SIMULATION_COUNT_ERROR = "Simulation failed: A non-integer value was given for number of simulations. ";
+    public static final String INCORRECT_AIRCRAFT_TYPE = "Simulation failed: Aircraft type not available";
+    public static final String INVALID_WEATHER = "Simulation failed: The weather condition is not valid";
+//    public static final String SCENARIO_FILE_EMPTY = "Scenario file: cannot be empty";
+    public static final String SCENARIO_FILE_INVALID_ARGUMENT = "Simulation failed: Invalid argument type 'scenario.txt'";
+    public static final String SCENARIO_FILE_INDEX_OUT_OF_BOUNDS = "Simulation failed: index out of bounds 'scenario.txt'";
+
 
 //    File names
     public static final String SCENARIO_FILE = "scenario.txt";
@@ -40,4 +45,7 @@ public class Const {
     public static final String RAIN = "RAIN";
     public static final String FOG = "FOG";
     public static final String SNOW = "SNOW";
+
+//
+    public static final String SIMULATION_COMPLETE =  "Simulation completed...";
 }
