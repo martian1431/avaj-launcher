@@ -47,7 +47,7 @@ public class Simulator {
         } catch (NumberFormatException e) {
             System.err.println(SCENARIO_FILE_INVALID_ARGUMENT);
             System.exit(1);
-        } catch (ArrayIndexOutOfBoundsException | InterruptedException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println(SCENARIO_FILE_INDEX_OUT_OF_BOUNDS);
             System.exit(1);
         } catch (Exception e) {
@@ -59,11 +59,9 @@ public class Simulator {
         }
     }
 
-    private static void startSimulation(int simulations) throws InterruptedException {
+    private static void startSimulation(int simulations) {
         for (int index = 1; index <= simulations; index++) {
             weatherTower.changeWeather();
-            System.out.print("#");
-            sleep(300);
         }
         System.out.println();
     }
