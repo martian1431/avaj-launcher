@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.wethinkcode.avaj.simulator.utils.Const.*;
-import static java.lang.Thread.sleep;
 
 public class Simulator {
     private static WeatherTower weatherTower;
