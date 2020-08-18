@@ -37,7 +37,6 @@ public class Simulator {
                 startSimulation(simulations);
             }
             bufferedReader.close();
-
         } catch (FileNotFoundException e) {
             System.err.println(FILE_NOT_FOUND + args[FILE]);
             System.exit(1);
