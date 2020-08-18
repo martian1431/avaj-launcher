@@ -21,6 +21,7 @@ public class Simulator {
         try {
             weatherTower = new WeatherTower();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(args[0]));
+
             String line = bufferedReader.readLine();
             int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
 
@@ -59,10 +60,9 @@ public class Simulator {
     }
 
     private static void startSimulation(int simulations) {
-        for (int index = 1; index <= simulations; index++) {
+        for (int index = 0; index < simulations; index++) {
             weatherTower.changeWeather();
         }
-        System.out.println();
     }
 
     private static void createAircraft(BufferedReader bufferedReader) throws Exception {
