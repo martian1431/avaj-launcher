@@ -70,7 +70,6 @@ public class Simulator {
         for (int index = 0; index < simulations; index++) {
             weatherTower.changeWeather();
         }
-
     }
 
     private static void createAircraft(BufferedReader bufferedReader) throws Exception {
