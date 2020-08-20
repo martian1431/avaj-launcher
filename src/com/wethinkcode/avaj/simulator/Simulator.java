@@ -49,7 +49,7 @@ public class Simulator {
             System.err.println(SCENARIO_FILE_INVALID_ARGUMENT);
             System.exit(1);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println(SCENARIO_FILE_INDEX_OUT_OF_BOUNDS);
+            System.err.println(INDEX_OUT_OF_BOUNDS);
             System.exit(1);
         } catch (Exception e) {
             System.err.println(e.getMessage());
