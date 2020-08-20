@@ -22,14 +22,16 @@ public class Simulator {
             weatherTower = new WeatherTower();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(args[0]));
 
-            String line = bufferedReader.readLine();
-            int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNT]);
-
-            if (line.split(SPACE).length != POSITIVE_NUMBER) {
-                System.err.println(SCENARIO_FILE_INVALID_ARGUMENT);
+            if (bufferedReader.readLine() == null) {
+                System.err.println(EMPTY_FILE);
                 System.exit(1);
-            } else if (Integer.signum(simulations) != POSITIVE_NUMBER) {
-                System.err.println(SIMULATION_COUNT_ERROR);
+            }
+
+            String line = bufferedReader.readLine();
+            int simulations = Integer.parseInt(line.split(SPACE)[SIMULATION_COUNTER]);
+
+            if (Integer.signum(simulations) != POSITIVE_NUMBER) {
+                System.err.println(SIMULATION_COUNTER_ERROR);
                 System.exit(1);
             } else {
                 createAircraft(bufferedReader);
@@ -38,10 +40,10 @@ public class Simulator {
             }
             bufferedReader.close();
         } catch (FileNotFoundException e) {
-            System.err.println(FILE_NOT_FOUND + args[FILE]);
+            System.err.println(FILE_NOT_FOUND + "'" +args[FILE] + "'");
             System.exit(1);
         } catch (IOException e) {
-            System.err.println(ERROR_READING_FILE + args[FILE]);
+            System.err.println(ERROR_READING_FILE + "'" + args[FILE] + "'");
             System.exit(1);
         } catch (NumberFormatException e) {
             System.err.println(SCENARIO_FILE_INVALID_ARGUMENT);
