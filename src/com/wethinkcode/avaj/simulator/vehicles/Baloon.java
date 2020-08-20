@@ -6,7 +6,7 @@ import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
 
 import java.util.HashMap;
 
-import static com.wethinkcode.avaj.simulator.utils.Const.*;
+import static com.wethinkcode.avaj.simulator.utils.Const.*; 
 /**
  * Ballon
  *
