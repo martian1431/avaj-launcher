@@ -22,8 +22,7 @@ public class Simulator {
             weatherTower = new WeatherTower();
             BufferedReader bufferedReader = new BufferedReader(new FileReader(args[0]));
 
-            String line = "";
-            System.out.println(line.length());
+            String line;
             if ((line = bufferedReader.readLine()) == null) {
                 System.err.println(EMPTY_FILE);
                 System.exit(1);
@@ -31,7 +30,7 @@ public class Simulator {
 
             for (int i = 0; i < line.length(); i++) {
                 if (Character.isWhitespace(line.charAt(i))) {
-                    System.err.println("Simulation failed: Invalid argument simulation counter");
+                    System.err.println(INVALID_COUNTER);
                     System.exit(1);
                 }
             }

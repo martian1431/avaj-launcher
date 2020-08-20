@@ -31,6 +31,7 @@ public class Const {
     public static final String SCENARIO_FILE_INVALID_ARGUMENT = "Simulation failed: Invalid argument type 'scenario.txt'";
     public static final String INDEX_OUT_OF_BOUNDS = "Simulation failed: index out of bounds 'scenario.txt'";
     public static final String EMPTY_FILE = "Simulation failed: 'scenario.txt' file cannot be empty";
+    public static final String INVALID_COUNTER = "Simulation failed: Invalid argument simulation counter";
 
 
 //    File names
