@@ -20,9 +20,7 @@ public class Const {
     public static final String FILE_NOT_FOUND = "Simulation failed: Could not find file ";
     public static final String ERROR_READING_FILE = "Simulation failed: failed reading the file 'scenario.txt' ";
     public static final String ERROR_WRITING_FILE = "Simulation failed: failed writing to file: 'simulation.txt' ";
-//    FIXME: change name and value
 //    public static final String SCENARIO_FORMAT_ERROR = "Simulation failed: A non-integer value was given for number of simulations.";
-    //    FIXME: change name and value
 //    public static final String INDEX_ERROR = "Specify simulation file";
     public static final String SIMULATION_COUNTER_ERROR = "Simulation failed: Counter must be a positive number";
     public static final String INCORRECT_AIRCRAFT_TYPE = "Simulation failed: Aircraft type not available";
