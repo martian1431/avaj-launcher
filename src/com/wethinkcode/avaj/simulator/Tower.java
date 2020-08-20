@@ -12,7 +12,7 @@ import java.util.List;
  * @since   2020-10-20
  * @version 1.0
  */
-public class Tower {
+public abstract class Tower {
     private List<Flyable> observers = new ArrayList<>();
 
     public void register(Flyable flyable) {

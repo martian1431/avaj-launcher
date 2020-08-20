@@ -32,18 +32,25 @@ public class Helicopter extends Aircraft implements Flyable {
         message.put(SNOW, "Do you wanna build a snowman?");
 
         switch (weather) {
-            case SUN -> this.coordinates = new Coordinates(coordinates.getLongitude() + 10,
+            case SUN:
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 10,
                     coordinates.getLatitude(), coordinates.getHeight() + 2);
-            case RAIN -> this.coordinates = new Coordinates(coordinates.getLongitude() + 5,
+                break;
+            case RAIN:
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 5,
                     coordinates.getLatitude(), coordinates.getHeight());
-            case FOG -> this.coordinates = new Coordinates(coordinates.getLongitude() + 1,
+                break;
+            case FOG:
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 1,
                     coordinates.getLatitude(), coordinates.getHeight());
-            case SNOW -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case SNOW:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude(), coordinates.getHeight() - 7);
-            default -> {
+                break;
+            default:
                 System.out.println(INVALID_WEATHER);
                 System.exit(1);
-            }
         }
         Log.addMessage("Helicopter#" + this.name + "(" + this.id + "): " + message.get(weather));
         if (this.coordinates.getHeight() <= 0) {

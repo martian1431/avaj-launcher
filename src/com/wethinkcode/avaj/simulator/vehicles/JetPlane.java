@@ -34,18 +34,25 @@ public class JetPlane extends Aircraft implements Flyable {
         message.put(SNOW, "Snow ball fight");
 
         switch (weather) {
-            case SUN -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+            case SUN:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude() + 10, coordinates.getHeight() + 2);
-            case RAIN -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case RAIN:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude() + 5, coordinates.getHeight());
-            case FOG -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case FOG:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude() + 1, coordinates.getHeight());
-            case SNOW -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case SNOW:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude(), coordinates.getHeight() - 7);
-            default -> {
+                break;
+            default:
                 System.out.println(INVALID_WEATHER);
                 System.exit(1);
-            }
         }
         Log.addMessage("JetPlane#" + this.name + "(" + this.id + "): " + message.get(weather));
         if (this.coordinates.getHeight() <= 0) {

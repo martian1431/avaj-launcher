@@ -7,7 +7,7 @@ package com.wethinkcode.avaj.simulator.vehicles;
  * @since   2020-10-20
  * @version 1.0
  */
-public class Aircraft {
+public abstract class Aircraft {
     protected long id;
     protected String name;
     protected Coordinates coordinates;

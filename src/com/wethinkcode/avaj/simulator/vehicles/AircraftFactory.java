@@ -11,7 +11,7 @@ import static com.wethinkcode.avaj.simulator.utils.Const.*;
  * @since   2020-10-20
  * @version 1.0
  */
-public class AircraftFactory {
+public abstract class AircraftFactory {
     public static Flyable newAircraft(String type, String name, int longitude, int latitude, int height) {
         Coordinates coordinates = new Coordinates(longitude, latitude, height);
         switch (type.toLowerCase()){

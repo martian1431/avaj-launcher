@@ -6,7 +6,7 @@ import com.wethinkcode.avaj.simulator.vehicles.interfaces.Flyable;
 
 import java.util.HashMap;
 
-import static com.wethinkcode.avaj.simulator.utils.Const.*; 
+import static com.wethinkcode.avaj.simulator.utils.Const.*;
 /**
  * Ballon
  *
@@ -31,18 +31,26 @@ public class Baloon extends Aircraft implements Flyable {
         message.put(SNOW, "Daaaaamn its freezing");
 
         switch (weather) {
-            case SUN -> this.coordinates = new Coordinates(coordinates.getLongitude() + 2,
+            case SUN:
+                this.coordinates = new Coordinates(coordinates.getLongitude() + 2,
                     coordinates.getLatitude(), coordinates.getHeight() + 4);
-            case RAIN -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case RAIN:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude(), coordinates.getHeight() - 5);
-            case FOG -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case FOG: this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude(), coordinates.getHeight() - 3);
-            case SNOW -> this.coordinates = new Coordinates(coordinates.getLongitude(),
+                break;
+            case SNOW:
+                this.coordinates = new Coordinates(coordinates.getLongitude(),
                     coordinates.getLatitude(), coordinates.getHeight() - 15);
-            default -> {
+                break;
+            default:
                 System.out.println(INVALID_WEATHER);
                 System.exit(1);
-            }
+
+
         }
         Log.addMessage("Baloon#" + this.name + "(" + this.id + "): " + message.get(weather));
         if (this.coordinates.getHeight() <= 0) {
