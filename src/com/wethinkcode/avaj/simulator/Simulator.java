@@ -52,14 +52,13 @@ public class Simulator {
             System.err.println(ERROR_READING_FILE + "'" + args[FILE] + "'");
             System.exit(1);
         } catch (NumberFormatException e) {
-            System.out.println("test");
             System.err.println(SCENARIO_FILE_INVALID_ARGUMENT);
             System.exit(1);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.err.println("simulation failed: no input file");
             System.exit(1);
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            System.err.println("Something went wrong please try again");
             System.exit(1);
         } finally {
             Log.logMessage();
