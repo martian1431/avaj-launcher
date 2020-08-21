@@ -81,7 +81,7 @@ public class Simulator {
             if (line.split(SPACE).length != ARGUMENT_COUNT) {
                 throw new Exception(SCENARIO_FILE_INVALID_ARGUMENT);
             } else if (Integer.signum(height) != POSITIVE_NUMBER) {
-                System.out.println("Invalid height");
+                System.out.println("Simulation failed: Invalid height");
                 System.exit(1);
             } else {
                 Flyable aircraft = AircraftFactory.newAircraft(line.split(SPACE)[AIRCRAFT_TYPE],
