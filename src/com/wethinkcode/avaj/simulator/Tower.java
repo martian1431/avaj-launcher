@@ -24,8 +24,13 @@ public abstract class Tower {
     }
 
     protected void conditionsChanged() {
+        int len = observers.size();
         for (int i = 0; i < observers.size(); i++) {
             observers.get(i).updateConditions();
+            if (len != observers.size()) {
+                observers.get(i).updateConditions();
+                len = observers.size();
+            }
         }
     }
 }
