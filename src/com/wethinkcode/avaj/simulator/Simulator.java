@@ -29,7 +29,7 @@ public class Simulator {
             }
 
             for (int i = 0; i < line.length(); i++) {
-                if (Character.isWhitespace(line.charAt(i))) {
+                if (Character.isWhitespace(line.charAt(i)) || !Character.isDigit(line.charAt(i))) {
                     System.err.println(INVALID_COUNTER);
                     System.exit(1);
                 }
@@ -52,10 +52,11 @@ public class Simulator {
             System.err.println(ERROR_READING_FILE + "'" + args[FILE] + "'");
             System.exit(1);
         } catch (NumberFormatException e) {
+            System.out.println("test");
             System.err.println(SCENARIO_FILE_INVALID_ARGUMENT);
             System.exit(1);
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.err.println(INDEX_OUT_OF_BOUNDS);
+            System.err.println("simulation failed: no input file");
             System.exit(1);
         } catch (Exception e) {
             System.err.println(e.getMessage());

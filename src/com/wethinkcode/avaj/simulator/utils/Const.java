@@ -26,10 +26,10 @@ public class Const {
     public static final String INCORRECT_AIRCRAFT_TYPE = "Simulation failed: Aircraft type not available";
     public static final String INVALID_WEATHER = "Simulation failed: The weather condition is not valid";
 //    public static final String SCENARIO_FILE_EMPTY = "Scenario file: cannot be empty";
-    public static final String SCENARIO_FILE_INVALID_ARGUMENT = "Simulation failed: Invalid argument type 'scenario.txt'";
+    public static final String SCENARIO_FILE_INVALID_ARGUMENT = "Simulation failed: Invalid argument 'scenario.txt'";
     public static final String INDEX_OUT_OF_BOUNDS = "Simulation failed: index out of bounds 'scenario.txt'";
     public static final String EMPTY_FILE = "Simulation failed: 'scenario.txt' file cannot be empty";
-    public static final String INVALID_COUNTER = "Simulation failed: Invalid argument simulation counter";
+    public static final String INVALID_COUNTER = "Simulation failed: Invalid simulation counter";
 
 
 //    File names
