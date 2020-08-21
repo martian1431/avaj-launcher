@@ -75,8 +75,14 @@ public class Simulator {
     private static void createAircraft(BufferedReader bufferedReader) throws Exception {
         String line;
         while ((line = bufferedReader.readLine()) != null) {
+            int longitute = Integer.parseInt(line.split(SPACE)[AIRCRAFT_LONGITUDE]);
+            int latitude = Integer.parseInt(line.split(SPACE)[AIRCRAFT_LATITUDE]);
+            int height = Integer.parseInt(line.split(SPACE)[AIRCRAFT_HEIGHT]);
             if (line.split(SPACE).length != ARGUMENT_COUNT) {
                 throw new Exception(SCENARIO_FILE_INVALID_ARGUMENT);
+            } else if (Integer.signum(height) != POSITIVE_NUMBER) {
+                System.out.println("Invalid height");
+                System.exit(1);
             } else {
                 Flyable aircraft = AircraftFactory.newAircraft(line.split(SPACE)[AIRCRAFT_TYPE],
                         line.split(SPACE)[AIRCRAFT_NAME],
